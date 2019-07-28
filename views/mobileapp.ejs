@@ -1,0 +1,69 @@
+<%- include('header'); -%>
+<% let now = new Date() %>
+<div class="base">
+    <div class="main">
+        <% if (events.current === null) {%>
+            <div class="current bg-success">
+                <i class="fas fa-check-circle fa-10x"></i>
+                <p class="h1">The room is free!</p>
+            </div>
+        <% } else { %>
+            <div class="current bg-danger">
+                <i class="fas fa-calendar fa-6x"></i>
+                <p class="h1"><%= events.current.name %></p>
+                <p class="h3">Ends in less than <%= events.current.endsIn %> (<%= events.current.end.toLocaleTimeString("es-ES", {hour: "2-digit", minute: "2-digit"}) %>)</p>
+                <p>On for more than <%= events.current.startedIn %> (<%= events.current.start.toLocaleTimeString("es-ES", {hour: "2-digit", minute: "2-digit"}) %>)</p>
+            </div>
+        <% } %>
+        <div class="next">
+            <% for (let i = 0; i < events.next.length; i++) { %>
+                <div class="card bg-<%= events.next[i].isFree ? 'success' : 'danger' %>-light">
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-10">
+                                    <h4 class="card-title"><%= events.next[i].name %></h4>
+                                    <%= events.next[i].start.toLocaleTimeString("es-ES", {hour: "2-digit", minute: "2-digit"}) %> - <%= events.next[i].end.toLocaleTimeString("es-ES", {hour: "2-digit", minute: "2-digit"}) %>
+                                    <% if (now.getDay() !== events.next[i].start.getDay()) { %>
+                                        <small>(<%= events.next[i].start.toLocaleDateString('es-ES') %>)</small>
+                                    <% } %>
+                                </div>
+                                <% if (events.next[i].isFree) { %>
+                                    <!-- TODO: Maybe some day... -->
+                                    <!--<div class="col-2">
+                                        <button type="button" class="btn btn-primary btn-lg h-100" disabled>Book</button>
+                                    </div>-->
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <aside class="sidebar bg-primary">
+        <button class="btn btn-primary" disabled><i class="fas fa-plus fa-2x"></i></button>
+        <div class="clock">09:56</div>
+    </aside>
+</div>
+
+<%- include('javascripts'); -%>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(() => { location.reload() }, 60 * 5 * 1000);
+
+        updateClock();
+    });
+
+    function updateClock()
+    {
+        let now = new Date();
+
+        $('.clock').html(moment().format('HH:mm'));
+
+        setTimeout(updateClock, 60 * 1000);
+    }
+</script>
+
+<%- include('footer'); -%>

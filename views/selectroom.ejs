@@ -1,0 +1,24 @@
+<%- include('header'); -%>
+
+<form action="/room" method="get" id="select-room">
+    <div class="card">
+        <div class="card-header">
+            Select a room
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="roomId" class="sr-only">Select a room:</label>
+                <select class="form-control" name="roomId" id="roomId">
+                    <% for (let i = 0; i < rooms.length; i++) { %>
+                        <option value="<%= rooms[i].id %>"><%= rooms[i].name %></option>
+                    <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-primary w-100" type="submit">Submit</button>
+        </div>
+    </div>
+</form>
+
+<%- include('footer'); -%>

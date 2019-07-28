@@ -1,0 +1,118 @@
+html, body {
+ background: #ddd;
+}
+
+.bg-danger-light {
+    background-color: #e6bbbb;
+}
+
+.bg-success-light {
+    background-color: #9ae6b1;
+}
+
+/**************/
+
+#select-room > div {
+    margin: 4em 2em 2em;
+}
+
+/**************/
+
+.base {
+    position: absolute;
+    top: 0;
+    left:0;
+
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    display: table-cell;
+
+    position: relative;
+
+    width: 1%;
+}
+
+.sidebar button {
+    padding: 1.5em;
+}
+
+.sidebar .clock {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    padding: .5em;
+
+    width: 100%;
+    height: auto;
+
+    background-color: #000066;
+
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+}
+
+
+.main {
+    position: relative;
+    display: table-cell;
+}
+
+.current {
+    position: absolute;
+    top: 0;
+    left:0;
+
+    height: 65%;
+    width: 100%;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.current p {
+    margin-top: 1em;
+}
+
+.next {
+    position: absolute;
+    bottom: 0;
+    left:0;
+
+    height: 35%;
+    width: 100%;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    background: #ddd;
+}
+
+.next > .card {
+    margin: .5em;
+}
+
+.next .next-event-info {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.next .next-event-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+    text-align: right;
+}
