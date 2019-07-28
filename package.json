@@ -1,7 +1,7 @@
 {
-  "name": "electron-calendar-app",
-  "version": "0.0.0",
-  "private": true,
+  "name": "privashare",
+  "version": "0.1.0",
+  "private": false,
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -15,5 +15,10 @@
     "jade": "~1.11.0",
     "moment": "^2.24.0",
     "morgan": "~1.9.1"
-  }
+  },
+  "author": {
+    "name": "Jordi Domènech Bonilla",
+    "email": "jdomenechbborges@gmail.com"
+  },
+  "license": "MIT"
 }
