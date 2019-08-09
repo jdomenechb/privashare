@@ -2,3 +2,4 @@
 /config/*.json
 /token.json
 /.idea
+/docker-compose.yml
