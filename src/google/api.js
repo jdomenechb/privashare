@@ -4,7 +4,7 @@ const {google} = require('googleapis');
 const moment = require('moment');
 
 // If modifying these scopes, delete token.json.
-const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
+const SCOPES = ['https://www.googleapis.com/auth/calendar.events'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
@@ -111,7 +111,6 @@ function listEventsInternal(auth, params) {
 function listEvents(calendarId, callback)
 {
     authorize(require('../../config/google-credentials'), listEventsInternal, {calendarId: calendarId, callback: callback});
-
 }
 
 module.exports = {
