@@ -36,7 +36,8 @@ html, body {
     width: 1%;
 }
 
-.sidebar button {
+.sidebar button,
+.sidebar a {
     padding: 1.5em;
 }
 

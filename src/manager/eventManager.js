@@ -18,7 +18,7 @@ const eventManager = {
      * @param {string} calendarId
      * @param {callback} callback
      */
-    getEventList: (calendarId, callback) => {
+    getEventList: (calendarId, callback, forceCacheMiss) => {
         let callbackInternal = (events) => {
             let now = new Date();
 
@@ -102,7 +102,7 @@ const eventManager = {
         };
 
 
-        googleapi.listEvents(calendarId, callbackInternal)
+        googleapi.listEvents(calendarId, callbackInternal, forceCacheMiss)
     }
 };
 

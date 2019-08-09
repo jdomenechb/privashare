@@ -70,13 +70,21 @@ function listEventsInternal(auth, params) {
 
     let now = new Date();
 
-    if (params.calendarId in eventCache && eventCache[params.calendarId].expiration > now) {
+    if (
+        params.forceCacheMiss !== true
+        && params.calendarId in eventCache && eventCache[params.calendarId].expiration > now
+    ) {
         // HIT: Use cache
         console.debug("Cache hit");
         params.callback(eventCache[params.calendarId].events);
     } else {
         // MISS: fetch from Google & update cache
-        console.debug("Cache miss");
+
+        if (params.forceCacheMiss === true) {
+            console.debug("Forced cache miss");
+        } else {
+            console.debug("Cache miss");
+        }
 
         calendar.events.list({
             calendarId: params.calendarId,
@@ -108,9 +116,9 @@ function listEventsInternal(auth, params) {
     }
 }
 
-function listEvents(calendarId, callback)
+function listEvents(calendarId, callback, forceCacheMiss)
 {
-    authorize(require('../../config/google-credentials'), listEventsInternal, {calendarId: calendarId, callback: callback});
+    authorize(require('../../config/google-credentials'), listEventsInternal, {calendarId: calendarId, callback: callback, forceCacheMiss: forceCacheMiss});
 }
 
 module.exports = {
