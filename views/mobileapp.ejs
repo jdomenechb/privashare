@@ -42,9 +42,9 @@
         </div>
     </div>
     <aside class="sidebar bg-primary">
-        <button class="btn btn-primary" disabled><i class="fas fa-plus fa-2x"></i></button>
-        <a class="btn btn-primary" href="/room/force-sync?roomId=<%= room.id %>"><i class="fas fa-sync fa-2x"></i></a>
-        <button class="btn btn-primary" id="info-btn" data-toggle="modal" data-target="#help-modal"><i class="fas fa-info-circle fa-2x"></i></button>
+        <button class="btn btn-primary" disabled title="Add new event"><i class="fas fa-plus fa-2x"></i></button>
+        <a class="btn btn-primary" href="/room/force-sync?roomId=<%= room.id %>" title="Update event information"><i class="fas fa-sync fa-2x"></i></a>
+        <button class="btn btn-primary" id="info-btn" data-toggle="modal" data-target="#help-modal" title="Help"><i class="fas fa-info-circle fa-2x"></i></button>
         <div class="clock">&nbsp;</div>
     </aside>
 </div>
