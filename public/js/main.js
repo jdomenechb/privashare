@@ -7,10 +7,6 @@ $(document).ready(function () {
     updateClock();
     eventListScrollToTop();
 
-    $('#btn-refresh').click(() => {
-        location.reload();
-    });
-
     // Go to top of event list after someone scrolled
     $('.next').scroll(e => {
         if (eventListScroll) {
